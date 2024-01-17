@@ -20,10 +20,9 @@ class MainPageScooter(BasePage):
 
     @allure.step('Выбираем локатор для кнопки "Заказать" в зависимости от ее местоположения на странице: {position}')
     def click_order_button(self, position):
-        match position:
-            case 'top':
-                return self.click_element_located(MainPageLocators.TOP_ORDER_BUTTON)
-            case 'bottom':
-                self.scroll_to_element_and_click(MainPageLocators.BOTTOM_ORDER_BUTTON)
+        if position == 'top':
+            return self.click_element_located(MainPageLocators.TOP_ORDER_BUTTON)
+        elif position == 'bottom':
+            return self.scroll_to_element_and_click(MainPageLocators.BOTTOM_ORDER_BUTTON)
 
 

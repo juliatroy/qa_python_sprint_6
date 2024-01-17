@@ -13,12 +13,12 @@ class TestOrdersRedirect:
         page.wait_for_new_tab_opened()
         page.switch_to_new_tab(driver.window_handles[1])
         sleep(3)  # wait for new page is loaded
-        assert 'dzen' in page.get_current_url()
+        assert 'dzen' in driver.current_url
 
     @allure.description('Клик по логотипу Самоката"')
     def test_check_orders_page_to_samokat_redirect(self, driver):
         page = OrderPage(driver)
         page.open_order_page()
         page.click_samokat_logo()
-        assert page.get_current_url() == URLS.MAIN_PAGE_URL
+        assert driver.current_url == URLS.MAIN_PAGE_URL
 
