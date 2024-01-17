@@ -24,5 +24,7 @@ class MainPageScooter(BasePage):
             return self.click_element_located(MainPageLocators.TOP_ORDER_BUTTON)
         elif position == 'bottom':
             return self.scroll_to_element_and_click(MainPageLocators.BOTTOM_ORDER_BUTTON)
+        else:
+            return f'Button position {position} is not allowed'
 
 
